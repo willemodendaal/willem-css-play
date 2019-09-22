@@ -1,13 +1,35 @@
-//Imports: Dependencies (note we use ES6 in this file, allowed by the babel-register package).
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 const path = require('path');
-require('babel-register');
 
-//Webpack config
-const config = {
-    //Entry not required. Webpack4 reads /src/index.js as default entry file.
-    //Output file config not required. Webpack4 outputs to /dist/main.js by default.
-    //Minification/uglification config not required. Webpack4 'production' mode does optimization by default.
+module.exports = {
+    module: {
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader"
+                }
+            },
+            {
+                test: /\.html/,
+                use: {
+                    loader: "html-loader",
+                    options: { minimize: true }
+                }
+            }
+        ]
+    },
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        compress:true,
+        port:9002
+    },
+    plugins: [
+        //Handles index.html for us. Auto-loads entrypoint js.
+        new HtmlWebPackPlugin({
+            template: "./src/index.html",
+            filename: "./index.html"
+        })
+    ]
 };
-
-//Exports
-module.exports = config;

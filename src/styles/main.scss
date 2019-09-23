@@ -1,14 +1,61 @@
+//Colors
+$base-color: #b6cfdd;
+
+//CSS reset.
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+//Stretch everything 100% vertically.
+.container, #app, html, body {
+  height: 100%;
+  margin: 0;
 }
 
 .container {
-    display: flex;
+  display: flex;
+  flex-flow: column nowrap;
+
+  > * {
+    margin: 5px;
+    background-color: $base-color;
+  }
 }
 
-.container > * {
-    margin: 5px;
-    background-color: #98ffa3;
+#header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-content: center;
+    
+    height: 3rem;
+    
+    > * {
+        background-color: darken($base-color, 10);
+        line-height: 3rem;
+    }
+    
+    #logo {
+    }
+    
+    #header-links > a {
+        padding: 10px;
+        cursor: pointer;
+    }
+}
+
+#toolbar {
+}
+
+#main {
+    flex-grow: 1;
+}
+
+#footer {
 }

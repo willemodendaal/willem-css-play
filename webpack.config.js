@@ -12,18 +12,11 @@ module.exports = {
                 }
             },
             {
-                test: /\.html/,
-                use: {
-                    loader: "html-loader",
-                    options: { minimize: true }
-                }
-            },
-            {
                 test: /\.scss/,
                 use: [
-                    //Creates style nodes from js imports.
+                    // Adds to CSS output as <style> tags to html output.
                     "style-loader",
-                    //Translates CSS into CommonJS.
+                    //Translates CSS into CommonJS (allows `import`)
                     "css-loader",
                     //Compiles Sass to CSS.
                     "sass-loader"]
@@ -36,7 +29,7 @@ module.exports = {
         port:9002
     },
     plugins: [
-        //Handles index.html for us. Auto-loads entrypoint js.
+        //Handles index.html for us. Auto-loads entrypoint js into html.
         new HtmlWebPackPlugin({
             template: "./src/index.html",
             filename: "./index.html"

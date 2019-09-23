@@ -17,6 +17,16 @@ module.exports = {
                     loader: "html-loader",
                     options: { minimize: true }
                 }
+            },
+            {
+                test: /\.scss/,
+                use: [
+                    //Creates style nodes from js imports.
+                    "style-loader",
+                    //Translates CSS into CommonJS.
+                    "css-loader",
+                    //Compiles Sass to CSS.
+                    "sass-loader"]
             }
         ]
     },

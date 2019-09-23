@@ -1,0 +1,18 @@
+#main-view {
+  display: flex;
+  flex-flow: row nowrap;
+  flex-grow: 1;
+  
+  > * {
+    background-color: darken($base-color, 20);
+    margin: 10px;
+  }
+  
+  #stage {
+    flex-grow: 3;
+  }
+  
+  #stage-filters {
+    flex-grow: 1;
+  }
+}

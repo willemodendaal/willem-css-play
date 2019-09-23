@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./styles/main.scss";
+import "./styles/index.scss";
+import MainView from "./components/main-view.jsx";
 
 const App = () => {
     return (
@@ -15,7 +16,7 @@ const App = () => {
             
             <div id={"toolbar"}>Toolbar</div>
             
-            <div id={"main"}>Main Body</div>
+            <MainView/>
             
             <div id={"footer"}>Footer</div>
         </div>
